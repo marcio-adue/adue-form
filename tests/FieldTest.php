@@ -11,7 +11,7 @@ class FieldTest extends TestCase
     {
         parent::getEnvironmentSetUp($app);
 
-        config([
+        $app['config']->set([
             'form.highlights_requirement' => 'none'
         ]);
     }
@@ -51,7 +51,7 @@ class FieldTest extends TestCase
     /** @test */
     function highlights_a_field_as_required()
     {
-        config(['form.highlights_requirement' => 'required']);
+        $this->app['config']->set(['form.highlights_requirement' => 'required']);
 
         $this->makeTemplate('<x-field name="email" type="email" required />')
             ->assertRender('
@@ -68,7 +68,7 @@ class FieldTest extends TestCase
     /** @test */
     function highlights_a_field_as_optional()
     {
-        config(['form.highlights_requirement' => 'optional']);
+        $this->app['config']->set(['form.highlights_requirement' => 'optional']);
 
         $this->makeTemplate('<x-field name="email" type="email" />')
             ->assertRender('
@@ -80,5 +80,31 @@ class FieldTest extends TestCase
                     <input name="email" type="email" class="form-control" id="email" aria-describedby="email">
                 </div>
             ');
+    }
+
+    /** @test */
+    function highlights_a_field_as_required_in_spanish()
+    {
+        $this->app['config']->set(['form.highlights_requirement' => 'required']);
+        $this->app['translator']->setLocale('es');
+        $this->app['translator']->addLines([
+            '*.required' => 'Obligatorio'
+        ], 'es');
+
+        $this->makeTemplate('<x-field name="email" type="email" required />')
+            ->assertContain('<span class="badge badge-danger">Obligatorio</span>');
+    }
+
+    /** @test */
+    function highlights_a_field_as_optional_in_spanish()
+    {
+        $this->app['config']->set(['form.highlights_requirement' => 'optional']);
+        $this->app['translator']->setLocale('es');
+        $this->app['translator']->addLines([
+            '*.optional' => 'Opcional'
+        ], 'es');
+
+        $this->makeTemplate('<x-field name="email" type="email" />')
+            ->assertContain('<span class="badge badge-info">Opcional</span>');
     }
 }

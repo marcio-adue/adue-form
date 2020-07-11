@@ -15,6 +15,9 @@ class FormServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../resources/views/', 'adue-form');
 
+        //$this->loadTranslationsFrom(__DIR__.'/../resources/lang/', 'form');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang/', 'form');
+
         Blade::component(Form::class, 'form');
         Blade::component(Field::class, 'field');
     }

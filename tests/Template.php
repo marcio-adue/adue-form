@@ -64,6 +64,13 @@ class Template
             $this->indentHtml($expectedHtml),
             $this->indentHtml($this->render())
         );
+        return $this;
+    }
+
+    public function assertContain($expectedHtml)
+    {
+        Assert::assertStringContainsString($expectedHtml, $this->render());
+        return $this;
     }
 
     private function render()
