@@ -28,5 +28,10 @@
             "email": "marcio@adue.digital"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": ["Adue\\FormServiceProvider"]
+        }
+    }
 }
