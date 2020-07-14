@@ -9,7 +9,7 @@ $config = \PhpCsFixer\Config::create()
     ->setRules([
         '@PSR2' => true,
         'single_quote' => true,
-        'ordered_imports' => ['sort_algorithm' => 'alpa'],
+        'ordered_imports' => ['sort_algorithm' => 'alpha'],
         'visibility_required' => false
     ])
     ->setFinder($finder);
