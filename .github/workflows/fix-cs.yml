@@ -11,6 +11,6 @@ jobs:
         with:
           args: --config=.php_cs --diff
       - name: Commit Style Changes
-        uses: stefanzweifel/git-autocommit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Apply cs-fixer
