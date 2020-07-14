@@ -10,3 +10,7 @@ jobs:
         uses: docker://oskarstark/php-cs-fixer-ga
         with:
           args: --config=.php_cs --diff
+      - name: Commit Style Changes
+        uses: stefanzweifel/git-autocommit-action@v4
+        with:
+          commit-message: Apply cs-fixer
