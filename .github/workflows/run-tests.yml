@@ -11,8 +11,9 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        php: [7.2, 7.3, 7.4]
+        os: [ubuntu-latest]
+        php: [7.2, 7.3]
+        stability: [prefer-lowest, prefer-stable]
     runs-on: ${{ matrix.os }}
     name: PHP${{ matrix.php }} in ${{ matrix.os }}
     steps:
@@ -21,13 +22,13 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.composer/cache/files
-          key: os-${{ matrix.os }}-php${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
+          key: os-${{ matrix.os }}-php${{ matrix.php }}-${{ matrix.stability }}-composer-${{ hashFiles('composer.json') }}
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           extensions: mbstring, fileinfo
       - name: Install dependencies
-        run: composer update --prefer-dist --no-interaction --no-progress
+        run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
       - name: Run tests
         run: vendor/bin/phpunit
