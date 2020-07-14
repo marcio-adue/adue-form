@@ -13,4 +13,4 @@ jobs:
       - name: Commit Style Changes
         uses: stefanzweifel/git-autocommit-action@v4
         with:
-          commit-message: Apply cs-fixer
+          commit_message: Apply cs-fixer
