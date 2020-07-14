@@ -3,7 +3,6 @@
 
 namespace Adue;
 
-
 use Illuminate\View\Component;
 
 class Form extends Component
@@ -21,8 +20,9 @@ class Form extends Component
 
     public function httpMethod()
     {
-        if($this->spoofedMethod())
+        if ($this->spoofedMethod()) {
             return 'post';
+        }
 
         return $this->method;
     }
@@ -36,5 +36,4 @@ class Form extends Component
     {
         return view('adue-form::form');
     }
-
 }
