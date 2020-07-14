@@ -12,6 +12,6 @@ $config = \PhpCsFixer\Config::create()
         'ordered_imports' => ['sort-algorithm' => 'alpa'],
         'visibility_required' => false
     ])
-    ->setFinder($config)
+    ->setFinder($config);
 
 return $config;
