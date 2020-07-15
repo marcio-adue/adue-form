@@ -7,12 +7,12 @@ use Gajus\Dindent\Indenter;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-     public function getPackageProviders($app)
-     {
-         return [
+    public function getPackageProviders($app)
+    {
+        return [
              'Adue\FormServiceProvider'
          ];
-     }
+    }
 
     protected function assertTemplateRenders($expectedHtml, $actualTemplate)
     {

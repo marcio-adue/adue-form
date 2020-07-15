@@ -3,7 +3,6 @@
 
 namespace Tests;
 
-
 use Gajus\Dindent\Indenter;
 use Illuminate\Foundation\Application;
 use Illuminate\View\Factory;
@@ -35,7 +34,6 @@ class Template
 
     public function __construct(Factory $view, Indenter $indenter)
     {
-
         $this->view = $view;
 
         $this->viewsDirectory =  __DIR__.'/views/';

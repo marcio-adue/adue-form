@@ -3,10 +3,8 @@
 
 namespace Tests;
 
-
 class FieldTest extends TestCase
 {
-
     protected function getEnvironmentSetUp($app)
     {
         parent::getEnvironmentSetUp($app);

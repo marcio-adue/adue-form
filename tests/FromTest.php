@@ -3,7 +3,6 @@
 
 namespace Tests;
 
-
 use Gajus\Dindent\Indenter;
 
 class FromTest extends TestCase
