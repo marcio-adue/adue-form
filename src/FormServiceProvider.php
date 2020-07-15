@@ -12,7 +12,7 @@ class FormServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/form.php', 'form');
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views/', 'adue-form'); 
+        $this->loadViewsFrom(__DIR__.'/../resources/views/', 'adue-form');
 
         //$this->loadTranslationsFrom(__DIR__.'/../resources/lang/', 'form');
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang/', 'form');
