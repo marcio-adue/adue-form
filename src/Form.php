@@ -36,5 +36,4 @@ class Form extends Component
     {
         return view('adue-form::form');
     }
-
 }
