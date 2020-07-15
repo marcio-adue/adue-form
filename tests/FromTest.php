@@ -16,6 +16,13 @@ class FromTest extends TestCase
     }
 
     /** @test */
+    function renders_a_form_with_fields()
+    {
+        $this->makeTemplate('<x-form><input></x-form>')
+            ->assertRender('<form method="get"><input></form>');
+    }
+
+    /** @test */
     function renders_a_form_with_post_method()
     {
         $this->makeTemplate('<x-form method="post"></x-form>')
